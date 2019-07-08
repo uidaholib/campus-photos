@@ -1,0 +1,28 @@
+# Jekyll Digital Collection Generator
+
+# Note: use environment variable on build command to include analytics
+# JEKYLL_ENV=production jekyll build
+
+# url variables
+# library's domain (only changed if using github pages)
+url: https://www.lib.uidaho.edu
+# location on the website, normally in /digital
+# e.g. /digital/hjccc
+baseurl: /digital/campus
+# url to the shared assets folder on Digital
+digital-assets: https://www.lib.uidaho.edu/assets
+# Collection's objects dir location
+objects: https://www.lib.uidaho.edu/digital/objects/campus
+
+# metadata filename in _data
+metadata: campus
+
+# page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
+page_gen:
+  - data: 'campus'
+    template: 'items'
+    name: 'object-id'
+    dir: 'items'
+    extension: 'html'   
+
+exclude: [docs, 'Rakefile']
