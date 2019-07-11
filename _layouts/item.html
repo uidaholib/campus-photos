@@ -11,18 +11,12 @@ layout: default
     </ul>
 
     <div class="row">
-        <div class="col-md-12" id="lightgallery" >
+        <div class="col-md-6" id="lightgallery" >
             <div class="card mb-2">
                 {% if page.format contains 'image' %}
                 <div class="p-3">
-                    <p>
-                        <div class="juxtapose">
-                            <img src="{{ site.objects }}/old/{{ page.object-id }}.jpg" alt="{{ page.title | escape }}" alt="old image" class="img-fluid"/>
-                            <img src="{{ site.objects }}/new/new_{{ page.object-id }}.jpg" alt="{{ page.title | escape }}" alt="new image" class="img-fluid"/>
-                        </div>
-                        <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
-                        <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-                    </p>
+                    <p><a href="{{ site.objects }}/{{ page.filename }}" target="_blank"><img src="{{ site.objects }}/small/{{ page.object-id }}_sm.jpg" alt="{{ page.title | escape }}" alt="item thumbnail" class="img-fluid"></a></p>
+                </div>
                 {%- elsif page.format contains 'audio' -%}
                 <div class="p-3">
                     <p class="text-center">
@@ -80,8 +74,8 @@ layout: default
             </div>
         </div>
 
-        <div class="col-md-12">
-            <div id="item-metadata" class="metadata text-center">
+        <div class="col-md-6">
+            <div id="item-metadata" class="metadata">
                 <dl>
                     {% for f in fields %}{% if f.display-name and page[f.field] %}
                     <dt class="field">{{ f.display-name }}:</dt>
@@ -99,10 +93,6 @@ layout: default
             </div>
         </div>
 
-    </div>
-
-    <div>
-        <p>{{ page.narrative }}</p>
     </div>
 
     <div class="row">
