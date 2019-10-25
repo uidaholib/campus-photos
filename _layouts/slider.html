@@ -4,7 +4,6 @@ layout: default
 ---
 {%- assign fields = site.data.metadata-config -%}
 
-
 <div class="container py-3">
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ '/' | absolute_url }}">Home</a></li>
@@ -17,22 +16,24 @@ layout: default
             <div class="card mb-2 text-center">
                 {% if page.format contains 'image' %}
                 <div class="p-3">
-                    <p>
                         <div class="d-flex justify-content-center">
-                        <div class="juxtapose" style="width:90%;">
+                        <div class="juxtapose">
                             <img src="{{ site.objects }}/old/{{ page.object-id }}.jpg" alt="{{ page.title | escape }}" alt="old image" class="img-fluid" />
                             <img src="{{ site.objects }}/new/new_{{ page.object-id }}.jpg" alt="{{ page.title | escape }}" alt="new image" class="img-fluid" />
                         </div>
                         <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
                         <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
                     </div>
-                    </p>
                 </div>
                 {% endif %}
             </div>
         </div>
 
         <div class="col-md-12">
+            <p>{{ page.narrative }}</p>
+        </div>
+
+        <div class="col-md-12 text-center">
             <div id="item-metadata" class="metadata">
                 <dl>
                     {% for f in fields %}{% if f.display-name and page[f.field] %}
@@ -51,9 +52,6 @@ layout: default
             </div>
         </div>
 
-        <div class="col-md-12">
-            <p>{{ page.narrative }}</p>
-        </div>
     </div>
 
     <div class="row">
