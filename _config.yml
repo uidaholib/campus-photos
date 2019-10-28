@@ -20,7 +20,7 @@ metadata: campus
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
 page_gen:
   - data: 'campus'
-    template: 'sliders'
+    template: 'items'
     name: 'object-id'
     dir: 'items'
     extension: 'html'   

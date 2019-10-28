@@ -2,15 +2,15 @@
 
 # Site settings
 # header and head metadata
-title: Collection Title
-tagline: # SciFi Fan Convention on the Palouse
+title: "Campus Buildings: Then and Now"
+tagline: A selection of University of Idaho buildings, past and present # SciFi Fan Convention on the Palouse
 description: # "Two decades of Science Fiction fandom on the Palouse." 
-keywords: "Idaho; SciFi; FanCon" # describing the whole collection -- add to the two provided
+keywords: "University of Idaho; campus; sororities; fraternities" # describing the whole collection -- add to the two provided
 author: # You! Add your github username 
 objects: https://www.lib.uidaho.edu/digital/objects/campus
 
 # Home page
-home-banner-image-link:  # https://www.lib.uidaho.edu/digital/objects/campus/.jpg 
+home-banner-image-link: https://www.lib.uidaho.edu/digital/objects/campus/old/PG1_131-02.jpg # https://www.lib.uidaho.edu/digital/objects/campus/.jpg 
 # img tile for accessibility
 home-banner-image-title:
 home-title-y-padding: 4em # the margin from the top your title portion will appear
