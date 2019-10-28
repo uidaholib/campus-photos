@@ -1,12 +1,12 @@
 field,display-name,dc-map,browse-link
 title,Title,DC.title
-date,Date,DCTERMS.created
+date,Date Original,DCTERMS.created
+date_new,Date New,
 description,Description,DC.description
 collection, Collection,,true
 creator,Creator,
 subject,Subjects,
 location,Location,
-identifier,Identifier,
 format_original,Original Format,
 type,Type,DC.type
 format,Digital Format,
