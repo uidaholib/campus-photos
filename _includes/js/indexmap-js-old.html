@@ -1,0 +1,62 @@
+{%- assign items = site.data[site.metadata] -%}
+{%- assign fields = site.data.map-config -%}
+<!-- load leaflet dependencies -->
+<script src="{{ '/leaflet/leaflet.js' | prepend: site.digital-assets }}"></script>
+<script src="{{ '/leaflet/fuse.min.js' | prepend: site.digital-assets }}"></script>
+<script src="{{ '/leaflet/leaflet.fusesearch.js' | prepend: site.digital-assets }}"></script>
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+<script>
+
+    (function(){
+    /* add collection map data */
+    var geodata = { "type": "FeatureCollection", "features": [ 
+    {% for item in items %}{% if item.latitude and item.longitude %}
+    { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude | strip }},{{ item.latitude | strip }}] }, "properties":
+    { "title": {{ item.title | jsonify }}, 
+    {% for f in fields %}"{{ f.field }}": {{ item[f.field] | jsonify }},{% endfor %} "id": {{ item.object-id | jsonify }} } }{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %}
+    ]};
+
+    /* init map and set zoom */
+    var map = L.map('map',{scrollWheelZoom:false}).setView([{{ site.data.theme.latitude | default: 46.728976 }},{{ site.data.theme.longitude | default: -117.012449 }}],{{ site.data.theme.zoom-level | default: 10 }});
+
+    // add Stamen TonerLite to map.
+    // L.tileLayer.provider('Stamen.TonerLite').addTo(map);
+    /*
+    var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 1,
+	maxZoom: 16,
+	ext: 'jpg'
+    }).addTo(map);
+    */
+    
+    var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 0,
+	maxZoom: 20,
+	ext: 'png'
+    }).addTo(map);
+    
+   
+    /* add geojson marker and popup */
+    L.geoJson(geodata, {
+        pointToLayer: function(feature,latlng){
+            var marker = L.marker(latlng);
+            marker.bindPopup('<h3>' + feature.properties.title + 
+            '</h3><p><a target="_blank" class="btn btn-light" href="{% if site.data.theme.repo-link %}{{ site.data.theme.cdm-url }}/cdm/ref/collection/{{ site.data.theme.cdm-collection-id }}/id/' + feature.properties.cdm + '{% else %}{{ site.baseurl }}/items/' + feature.properties.id + '.html{% endif %}" ><img class="mapthumb" src="{{ site.objects }}/thumbs/' + feature.properties.id + '_th.jpg" /></a>' +
+            {% for f in fields %}{% if f.display %}
+            '<br><strong>{{ f.display }}:</strong> ' + feature.properties.{{ f.field }} + {% endif %}{% endfor %}
+            '<br><a target="_blank" class="btn btn-light" href="{% if site.data.theme.repo-link %}{{ site.data.theme.cdm-url }}/cdm/ref/collection/{{ site.data.theme.cdm-collection-id }}/id/' + feature.properties.cdm + '{% else %}{{ site.baseurl }}/items/' + feature.properties.id + '.html{% endif %}" >View</a></p>');
+            return marker;
+        }, 
+        onEachFeature: function (feature, layer) {
+            feature.layer = layer;
+        }
+    }).addTo(map);
+})();
+</script>
