@@ -11,5 +11,5 @@
 {% if layout.gallery == true %}{% include js/gallery-js.html %}{% endif %}
 {% if page.layout == "home-infographic" %}{% include js/indexmap-js.html %}
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>{% endif %}
-{% if page.layout == "item" %}{% include js/arrow-page-control-js.html %}{% endif %}
+{% if page.layout == "item" %}{% include js/arrow-page-control-js.html %}<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>{% endif %}
 {% if page.layout == "search" %}{% include js/lunr-js.html %}{% endif %}
