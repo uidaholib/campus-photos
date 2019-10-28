@@ -21,23 +21,9 @@ a {
 
 /* banner */
 .title-card {
-    background-color: #fff; /* fallback */
-    background-color: rgba(255, 255, 255, 0.86);
-    border: 2px solid #191919;
-}
-#title {
-    a { 
-        font-size: 35px;
-        font-weight: 300;
-        color: $text-color;
-    }
-    h1 {
-        line-height: 1;
-    }
-    p {
-        font-size: 14.5px;
-        line-height: 1;
-    }
+    background-color: #25242485;
+    background-color: rgba(37, 36, 36, 0.72);
+    color: white !important;
 }
 
 /* nav bar */
