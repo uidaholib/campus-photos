@@ -26,7 +26,7 @@ layout: page
             {%- assign extension = item.format | strip | split: '/' | last | downcase -%}
             {%- if item.format contains 'image' or item.format contains 'video' -%}
             <a href="{% include item-link.html %}">
-                <img class="card-img-top lazyload" {% if forloop.index < 10 %}src={% else %}data-original={% endif %}"{{ site.objects }}/small/{{ item.object-id }}_sm.jpg" alt="Image of {{ item.title | escape }}">           
+                <img class="card-img-top lazyload" {% if forloop.index < 10 %}src={% else %}data-original={% endif %}"{{ site.objects }}/old/{{ item.identifier }}.jpg" alt="Image of {{ item.title | escape }}">           
             </a>
             {%- endif -%}
             <div class="card-body text-center search">
