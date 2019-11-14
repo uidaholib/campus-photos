@@ -13,7 +13,7 @@ objects: https://www.lib.uidaho.edu/digital/objects/campus
 home-banner-image-link: https://www.lib.uidaho.edu/digital/objects/campus/old/PG1_131-02.jpg # https://www.lib.uidaho.edu/digital/objects/campus/.jpg 
 # img tile for accessibility
 home-banner-image-title:
-home-title-y-padding: 4em # the margin from the top your title portion will appear
+home-title-y-padding: # the margin from the top your title portion will appear
 carousel-height: # in px, but don't include the "px"; default is 300.
 featured-subjects: #separate semi-colon(';') - if left blank, will be automatically generated to create top 5 subjects
 featured-subjects-max: 6 # set number of top subjects to display if auto generating

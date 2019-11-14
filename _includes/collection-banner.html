@@ -1,35 +1,3 @@
-{% if page.layout == "home-infographic" %}
-<style>
-#home-banner {
-    background-image: url('{% if site.data.theme.home-banner-image-number %}{{ site.data.theme.cdm-url }}/digital/iiif/{{ site.data.theme.cdm-collection-id }}/{{ site.data.theme.home-banner-image-number }}/full/max/0/default.jpg{% else %}{{ site.data.theme.home-banner-image-link }}{% endif %}');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-#home-title-box {
-    padding-top: {{ site.data.theme.home-title-y-padding | default: '5em' }};
-    padding-bottom: {{ site.data.theme.home-title-y-padding | default: '5em' }};
-}
-@media screen and (max-width: 576px) {
-    #home-title-box {
-        padding-top: 5em;
-        padding-bottom: 5em; 
-    }
-}
-</style>
-<div id="home-banner" class="container-fluid mb-0 p-0">
-    <div id="home-title-box">
-        <div class="title-card p-2 text-center">
-            <a class="d-none d-md-block" href="https://www.lib.uidaho.edu/digital"><img src="https://www.lib.uidaho.edu/media/digital/bannerlogo_allwhite.png" alt="digital initiatives logo" style="height:40px;"></a>
-            <h1 class="display-4">{{ site.data.theme.title }}</h1>
-            {% if site.data.theme.tagline %}<p id="home-tagline">{{ site.data.theme.tagline }}</p>{% endif %}
-        </div>
-    </div>
-    <div class="text-right p-0 mt-0">
-        <small><a class="text-info featured-link" href="{% if site.data.theme.home-banner-image-number %}{{ site.data.theme.home-banner-image-number | prepend: site.data.theme.metadata | prepend: '/items/' | prepend: site.baseurl | append: '.html' }}{% else %}{{ site.data.theme.home-banner-image-link }}{% endif %}" title="{{ site.data.theme.home-banner-image-title }}">Featured Image</a></small>
-    </div>
-</div>
-{%- else -%}
 <div class="container">
     <div class="row align-items-center">
         <div id="title" class="col-md-9">
@@ -42,4 +10,3 @@
         </div>
     </div>
 </div>
-{%- endif -%}
