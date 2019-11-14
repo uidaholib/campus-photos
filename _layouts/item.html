@@ -18,15 +18,13 @@ layout: default
             </div>
         </div>
     </div>
-    <div class="row py-3">
-        <div class="col-md-9">
-            <div class="d-flex justify-content-center">
-                {% include image/juxtapose.html %}
-            </div>
+    <div class="row py-3 d-flex justify-content-center">
+        <div class="col-md-8">
+            {% include image/juxtapose.html %}
         </div>
 
-        <div class="col-md-3">
-            <div id="item-metadata" class="metadata">
+        <div class="col-md-4">
+            <div id="item-metadata" class="metadata ml-4">
                 <dl>
                     {% for f in fields %}{% if f.display-name and page[f.field] %}
                     <dt class="field">{{ f.display-name }}:</dt>
@@ -44,7 +42,7 @@ layout: default
             </div>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card text-center my-4">
                 <div class="card-body">
                     <p class="card-text">{{ page.narrative }}</p>
