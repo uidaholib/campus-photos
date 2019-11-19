@@ -7,7 +7,7 @@ tagline: A selection of University of Idaho buildings, past and present # SciFi 
 description: # "Two decades of Science Fiction fandom on the Palouse." 
 keywords: "University of Idaho; campus; sororities; fraternities" # describing the whole collection -- add to the two provided
 author: # You! Add your github username 
-objects: https://www.lib.uidaho.edu/digital/objects/campus
+objects: 
 
 # Home page
 home-banner-image-link: https://www.lib.uidaho.edu/digital/objects/campus/old/PG1_131-02.jpg # https://www.lib.uidaho.edu/digital/objects/campus/.jpg 
