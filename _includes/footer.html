@@ -11,11 +11,17 @@
       <h4 ><a href="{{ '/' | absolute_url }}" class="text-white">{{ site.data.theme.title }}</a></h4>
       <p class="text-white"><small>{{site.data.theme.description}}</small></p>
       <ul class="nav nav-pills ">
-        {% for nav in site.data.nav-configuration %}
+        {%- assign navItems = site.data.nav-configuration | where_exp: 'item', 'item.dropdown_parent == nil' -%}
+        {% for nav in navItems %}
         <li class="nav-item">
-          <a class="nav-link text-light clearwater" href="{{ nav.stub | relative_url }}">{{ nav.display-text }}</a> 
+          {% if nav.stub %}
+            <a class="nav-link text-light {% if page.url == nav.stub %} active{% endif %}" href="{{ nav.stub | relative_url }}">{{ nav.display-text }}</a>
+          {%- else -%}
+          {% assign childStub = site.data.nav-configuration | where_exp: 'item', 'item.dropdown_parent == nav.display-text' | first %}
+            <a class="nav-link text-light{% if page.url == childStub.stub %} active{% endif %}" href="{{ childStub.stub | relative_url }}">{{ nav.display-text }}</a>
+          {% endif %}
         </li>
-        {% endfor %}
+        {%- endfor -%}
       </ul>
 
     </div>

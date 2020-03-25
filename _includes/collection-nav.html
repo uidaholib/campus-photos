@@ -11,10 +11,24 @@
 
         <div class="collapse navbar-collapse" id="page-nav">
             <ul class="navbar-nav mr-auto">
-                {% for nav in site.data.nav-configuration %}
+                {%- assign navItems = site.data.nav-configuration | where_exp: 'item', 'item.dropdown_parent == nil' -%} 
+                {% for nav in navItems %}
+                {% if nav.stub %}
                 <li class="nav-item {% if page.url == nav.stub %}active{% endif %}">
                     <a class="nav-link" href="{{ nav.stub | relative_url }}">{{ nav.display-text }}</a>
                 </li>
+                {%- else -%}
+                <li class="nav-item dropdown">
+                    {% assign navChildren = site.data.nav-configuration | where_exp: 'item', 'item.dropdown_parent == nav.display-text' %}
+                    {%- assign childStubs = navChildren | map: 'stub' -%}
+                    <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ nav.display-text }}</a>
+                    <div class="dropdown-menu">
+                        {% for c in navChildren %}
+                        <a class="dropdown-item {% if page.url == c.stub %}active{% endif %}" href="{{ c.stub | relative_url }}">{{ c.display-text }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                {% endif %}
                 {% endfor %}
             </ul>
             {% include nav-search-site.html %}
