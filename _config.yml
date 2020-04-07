@@ -17,6 +17,8 @@ objects: https://www.lib.uidaho.edu/digital/objects/campushistory
 # metadata filename in _data
 metadata: campushistory
 
+cdm-url: https://digital.lib.uidaho.edu
+
 # page gen settings https://github.com/avillafiorita/jekyll-datapage_gen
 page_gen:
   - data: 'campushistory'
