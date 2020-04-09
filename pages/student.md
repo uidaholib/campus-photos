@@ -34,6 +34,7 @@ On the other hand, there are many programs that focus on professional developmen
 Overall, the University of Idaho has something for everyone and facilitates the growth and development of its students by providing amazing organizations and opportunities for everyone. 
 {:.pb-4}
 
+<div class="clearfix"></div>
 ---
 
 ## Author

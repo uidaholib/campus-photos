@@ -36,6 +36,6 @@ Over time the traditions have changed and grown to embody the spirit of the Univ
 
 ## Sources
 
-- <https://www.lib.uidaho.edu/digital/campus/locations/AdministrationBuilding(Old).html#more>
+- [Administration Building (Old), 1891-1906](https://www.lib.uidaho.edu/digital/campus/locations/AdministrationBuilding(Old).html#more), The University of Idaho Library's Campus Photograph Collection
 - Passehl-Stoddart, E., & Aiken, Katherine G. (2016). *University of Idaho*. Charleston, South Carolina: Arcadia Publishing.
 {:.pb-4}
