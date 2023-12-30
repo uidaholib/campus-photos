@@ -13,7 +13,7 @@
 <div class="text-center m-3 px-4 {% if include.float %}float-{{ include.float }} {% endif %}{% if include.width %}w-{{ include.width }}{% endif %}">
     <figure class="figure">
         <a href="{{ item.url }}">
-            <img class="figure-img img-fluid rounded lazyload" alt="{{ item.title | escape }}" src="{{ site.cdm-url }}/digital/iiif/{{ item.collectionid }}/{{ item.cdmid }}/full/max/0/default.jpg" >
+            <img class="figure-img img-fluid rounded lazyload" alt="{{ item.title | escape }}" src="{{ item.object_location }}" >
         </a>
         <figcaption class="figure-caption">{{ item.description }}</figcaption>
     </figure>
