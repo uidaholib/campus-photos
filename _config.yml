@@ -12,7 +12,12 @@ baseurl: /digital/campushistory
 # url to the shared assets folder on Digital
 digital-assets: https://www.lib.uidaho.edu/assets
 # Collection's objects dir location
-objects: https://www.lib.uidaho.edu/digital/objects/campushistory
+objects: https://objects.lib.uidaho.edu/campushistory
+
+organization-name: "University of Idaho Library Digital Collections"
+organization-link: https://www.lib.uidaho.edu/digital/
+organization-logo-banner: https://www.lib.uidaho.edu/media/images/ui_library_horizontal.png
+organization-logo-nav: https://www.lib.uidaho.edu/media/digital/liblogo_white.png
 
 # metadata filename in _data
 metadata: campushistory

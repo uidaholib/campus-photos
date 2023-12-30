@@ -5,8 +5,9 @@
             {% if site.data.theme.tagline %}<p>{{ site.data.theme.tagline }}</p>{% endif %}
         </div>
         <div class="col-md-3 d-none d-md-block text-right">
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#collections">
-            <img class="img-fluid" src="https://www.lib.uidaho.edu/media/digital/justdi_logo_sm.png" title="University of Idaho Library Digital Initiatives" alt="digital initiatives logo" ></button>
+            <a class="btn btn-outline-light" href="{{ site.organization-link }}" title="{{ site.organization-name | escape }} home" target="_blank" rel="noopener">
+                <img class="img-fluid" src="{{ site.organization-logo-banner | relative_url }}" alt="{{ site.organization-name | escape }}" >
+            </a>
         </div>
     </div>
 </div>
